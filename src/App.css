@@ -1,42 +1,89 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  background: linear-gradient(rgba(110, 78, 136, 0.9), rgba(98, 78, 136, 0.8)),
+    url(./Background.png);
+  background-size: cover;
+  background-position: center;
+}
+
+.katibeh-regular {
+  font-family: "Katibeh", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.bricolage-grotesque {
+  font-family: "Bricolage Grotesque", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 700px;
+  font-style: normal;
+  font-variation-settings: "wdth" 100;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  align-items: center;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+h1 {
+  font-size: 50px;
+  font-family: "katibeh";
+  color: #ffe893;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+h2 {
+  font-size: 42px;
+  font-family: "Bricolage Grotesque";
+  line-height: 48px;
+  color: #ffe893;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+button {
+  border: none;
+  border-radius: 25px;
+  padding: 10px;
+  margin: 10px;
+  width: 300px;
+  font-weight: 700;
+  text-align: center;
 }
 
-.card {
-  padding: 2em;
+button.account {
+  background-color: white;
+  color: #624e88;
 }
 
-.read-the-docs {
-  color: #888;
+button.signin {
+  background-color: #624e88;
+  color: white;
+}
+
+h3 {
+  color: white;
+  font-size: 15px;
+  font-family: "Bricolage Grotesque";
+}
+
+footer {
+  color: white;
+  font-size: 15px;
+  font-family: "Bricolage Grotesque";
+  margin-top: 40px;
+}
+
+span {
+  text-decoration: underline;
+}
+
+img {
+  margin-top: 110px;
+  margin-bottom: 35px;
+  width: 180px;
 }
