@@ -1,5 +1,10 @@
 import "./App.css";
-import vectorLogo from "./Vector.png";
+import vectorLogo from "./icon.png";
+import discover from "./assets/discover.png";
+import add from "./assets/add.png";
+import likes from "./assets/likes.png";
+import messages from "./assets/messages.png";
+import me from "./assets/me.png";
 
 function App() {
   return (
@@ -23,8 +28,24 @@ function App() {
             <br /> how we use your data in our <span>Privacy Policy.</span>
           </footer>
         </div>
+        <NavBar></NavBar>
       </div>
     </>
   );
 }
+
+function NavBar() {
+  return (
+    <>
+      <div class="nav">
+        <img src={discover}></img>
+        <img src={messages}></img>
+        <img src={add}></img>
+        <img src={likes}></img>
+        <img src={me}></img>
+      </div>
+    </>
+  );
+}
+
 export default App;

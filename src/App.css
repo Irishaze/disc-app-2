@@ -3,7 +3,7 @@
   top: 0;
   left: 0;
   width: 100%;
-  min-height: 100vh;
+  min-height: 70vh;
   background: linear-gradient(rgba(110, 78, 136, 0.9), rgba(98, 78, 136, 0.8)),
     url(./Background.png);
   background-size: cover;
@@ -27,7 +27,7 @@
 .container {
   display: flex;
   flex-direction: column;
-  height: 100vh;
+  height: 92vh;
   align-items: center;
   text-align: center;
 }
@@ -82,8 +82,23 @@ span {
   text-decoration: underline;
 }
 
-img {
+.container > img {
   margin-top: 110px;
   margin-bottom: 35px;
   width: 180px;
+}
+
+.nav {
+  display: flex;
+  background-color: #8967b3;
+  justify-content: space-evenly;
+  width: 97%;
+  padding-top: 13px;
+  padding-bottom: 13px;
+  padding-right: 20px;
+  margin-right: 20px;
+}
+
+.nav > img {
+  height: 40px;
 }
