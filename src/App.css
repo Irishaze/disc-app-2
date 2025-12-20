@@ -41,7 +41,10 @@
 }
 
 h1 {
-  font-size: 50px;
+  position: absolute;
+  left: 40px;
+  top: 20px;
+  font-size: 30px;
   font-family: "katibeh";
   color: #ffe893;
 }
@@ -107,7 +110,7 @@ span {
   margin-right: 20px;
 }
 
-.nav > img {
+.nav img {
   height: 40px;
 }
 
