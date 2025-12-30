@@ -36,6 +36,7 @@ app.get("/api/users/profiles", async (_req, res) => {
     first_name,
     last_name,
     email,
+    profile_picture,
     user_profiles ( date_of_birth, bio )
   `);
     res.json(data);
