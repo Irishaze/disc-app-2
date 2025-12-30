@@ -5,12 +5,12 @@ import { pool } from "./db/index.js";
 import dotenv from "dotenv";
 import { createClient } from "@supabase/supabase-js";
 
-const supabase = createClient(
-  "https://osunhyrqmhedyuurzosy.supabase.co",
-  "sb_publishable_ZHTgEsmumPFyr7FcLLXCDQ_oOxsVA_j"
-);
-
 dotenv.config();
+
+const supabase = createClient(
+  process.env.SUPABASE_URL,
+  process.env.SUPABASE_PUBLISHABLE_DEFAULT_KEY
+);
 
 const app = express();
 app.use(cors());
