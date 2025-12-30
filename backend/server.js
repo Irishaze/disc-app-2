@@ -3,6 +3,12 @@ import express from "express";
 import cors from "cors";
 import { pool } from "./db/index.js";
 import dotenv from "dotenv";
+import { createClient } from "@supabase/supabase-js";
+
+const supabase = createClient(
+  "https://osunhyrqmhedyuurzosy.supabase.co",
+  "sb_publishable_ZHTgEsmumPFyr7FcLLXCDQ_oOxsVA_j"
+);
 
 dotenv.config();
 
@@ -20,6 +26,21 @@ app.get("/api/users/all", async (_req, res) => {
     res.json(result.rows);
   } catch (err) {
     console.error("Error fetching all users:", err);
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.get("/api/users/profiles", async (_req, res) => {
+  try {
+    const { data, error } = await supabase.from("users").select(`
+    first_name,
+    last_name,
+    email,
+    user_profiles ( date_of_birth, bio )
+  `);
+    res.json(data);
+  } catch (err) {
+    console.error("Error fetching all user profiles:", err);
     res.status(500).json({ error: err.message });
   }
 });
