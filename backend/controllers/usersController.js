@@ -1,26 +1,7 @@
-// backend server.js
-import express from "express";
-import cors from "cors";
-import { pool } from "./db/index.js";
-import dotenv from "dotenv";
-import { createClient } from "@supabase/supabase-js";
+import { pool } from "../config/db.js";
+import { supabase } from "../config/superbase.js";
 
-dotenv.config();
-
-const supabase = createClient(
-  process.env.SUPABASE_URL,
-  process.env.SUPABASE_PUBLISHABLE_DEFAULT_KEY
-);
-
-const app = express();
-app.use(cors());
-app.use(express.json());
-
-app.get("/", (req, res) => {
-  res.json({ message: "Hello World!" });
-});
-
-app.get("/api/users/all", async (_req, res) => {
+export const getAllUsers = async (_req, res) => {
   try {
     const result = await pool.query("SELECT * FROM users");
     res.json(result.rows);
@@ -28,11 +9,11 @@ app.get("/api/users/all", async (_req, res) => {
     console.error("Error fetching all users:", err);
     res.status(500).json({ error: err.message });
   }
-});
+};
 
-app.get("/api/users/profiles", async (_req, res) => {
+export const getAllUserProfiles = async (req, res) => {
   try {
-    const { data, error } = await supabase.from("users").select(`
+    const { data } = await supabase.from("users").select(`
     first_name,
     last_name,
     email,
@@ -44,9 +25,9 @@ app.get("/api/users/profiles", async (_req, res) => {
     console.error("Error fetching all user profiles:", err);
     res.status(500).json({ error: err.message });
   }
-});
+};
 
-app.get("/api/users/alphabetical", async (req, res) => {
+export const getUsersAlphabetical = async (req, res) => {
   try {
     const result = await pool.query(
       "SELECT * FROM users ORDER BY last_name ASC"
@@ -56,9 +37,9 @@ app.get("/api/users/alphabetical", async (req, res) => {
     console.error("Error fetching users alphabetically:", err);
     res.status(500).json({ error: err.message });
   }
-});
+};
 
-app.get("/api/users/email-count", async (req, res) => {
+export const getUsersEmailCount = async (req, res) => {
   try {
     const result = await pool.query("SELECT COUNT(*) FROM users");
     res.json(result.rows[0]);
@@ -66,17 +47,11 @@ app.get("/api/users/email-count", async (req, res) => {
     console.error("Error getting email count:", err);
     res.status(500).json({ error: err.message });
   }
-});
+};
 
-app.post("/api/users", async (req, res) => {
+export const createUsers = async (req, res) => {
   try {
     const { first_name, last_name, email } = req.body;
-
-    if (!first_name || !last_name || !email) {
-      return res.status(400).json({
-        error: "first_name, last_name, email, and age are required",
-      });
-    }
 
     const queryText = `
       INSERT INTO users(first_name, last_name, email) 
@@ -91,9 +66,4 @@ app.post("/api/users", async (req, res) => {
     console.error("Error creating user:", err);
     res.status(500).json({ error: err.message });
   }
-});
-
-const PORT = process.env.VITE_PORT || 3001;
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+};
