@@ -18,6 +18,7 @@ export const getAllUserProfiles = async (req, res) => {
     last_name,
     email,
     profile_picture,
+    likes,
     user_profiles ( date_of_birth, bio )
   `);
     res.json(data);
