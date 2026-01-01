@@ -7,6 +7,15 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+app.use(
+  cors({
+    origin: [
+      "https://deploy-practice-97c63.web.app", // Firebase frontend
+      "http://localhost:5173", // Local dev
+    ],
+  })
+);
+
 app.get("/", (req, res) => {
   res.json({ message: "Hello World!" });
 });
