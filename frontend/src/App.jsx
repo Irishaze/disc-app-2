@@ -19,7 +19,7 @@ function OpeningPage() {
     <>
       <div className="background">
         <div className="container">
-          <img src="./assets/logo.png" alt="Meovv Logo" />
+          <img src="/logo.png" alt="Meovv Logo" />
           <h2 className="item">
             Find Your
             <br /> People Here at
@@ -55,9 +55,9 @@ function Header() {
   return (
     <>
       <div className="flex-container-2">
-        <img id="menu" src="./src/assets/menu_bar.png" />
-        <img id="logo" src="./src/assets/logo.png" />
-        <img id="search" src="./src/assets/search.png" />
+        <img id="menu" src="/menu_bar.png" />
+        <img id="logo" src="/logo.png" />
+        <img id="search" src="/search.png" />
       </div>
     </>
   );
