@@ -51,11 +51,6 @@ function Messages() {
   return <h1>Messages Page</h1>;
 }
 
-function randomIntFromInterval(min, max) {
-  // min and max included
-  return Math.floor(Math.random() * (max - min + 1) + min);
-}
-
 function Header() {
   return (
     <>
@@ -91,7 +86,7 @@ function UsersPage() {
           <div className="user" key={user.id}>
             <img
               className="profile"
-              src={user.profile_picture || "./src/assets/larryQian.jpg"}
+              src={user.profile_picture || "/larryQian.jpg"}
             />
             <p>
               {user.first_name} {user.last_name}
@@ -99,7 +94,7 @@ function UsersPage() {
             <br />
             <p>{user.user_profiles.bio || "Undeclared"}</p>
             <div className="heart">
-              <img src="./src/assets/heart.png" />
+              <img src="/heart.png" />
               <p>{user.likes}</p>
             </div>
           </div>
@@ -125,11 +120,7 @@ function NavBar() {
         <NavLink to="/discover">
           {({ isActive }) => (
             <img
-              src={
-                isActive
-                  ? "./src/assets/discover_2.png"
-                  : "./src/assets/discover.png"
-              }
+              src={isActive ? "/discover_2.png" : "/discover.png"}
               alt="discover icon"
             />
           )}
@@ -137,11 +128,7 @@ function NavBar() {
         <NavLink to="/messages">
           {({ isActive }) => (
             <img
-              src={
-                isActive
-                  ? "./src/assets/messages_2.png"
-                  : "./src/assets/messages.png"
-              }
+              src={isActive ? "/messages_2.png" : "/messages.png"}
               alt="messages icon"
             ></img>
           )}
@@ -149,7 +136,7 @@ function NavBar() {
         <NavLink to="/add">
           {({ isActive }) => (
             <img
-              src={isActive ? "./src/assets/add_2.png" : "./src/assets/add.png"}
+              src={isActive ? "/add_2.png" : "/add.png"}
               alt="add icon"
             ></img>
           )}
@@ -157,19 +144,14 @@ function NavBar() {
         <NavLink to="/likes">
           {({ isActive }) => (
             <img
-              src={
-                isActive ? "./src/assets/likes_2.png" : "./src/assets/likes.png"
-              }
+              src={isActive ? "/likes_2.png" : "/likes.png"}
               alt="likes icon"
             ></img>
           )}
         </NavLink>
         <NavLink to="/me">
           {({ isActive }) => (
-            <img
-              src={isActive ? "./src/assets/me_2.png" : "./src/assets/me.png"}
-              alt="home icon"
-            ></img>
+            <img src={isActive ? "/me_2.png" : "/me.png"} alt="home icon"></img>
           )}
         </NavLink>
       </nav>
@@ -258,11 +240,6 @@ function App() {
     setLoading(false);
   };
 
-  const handleLogout = async () => {
-    await supabase.auth.signOut();
-    setSession(null);
-  };
-
   // Show verification state
   if (verifying) {
     return (
@@ -328,7 +305,7 @@ function App() {
   // Show login form
   return (
     <div className="login">
-      <img src="./src/icon.png" alt="Meovv Logo" />
+      <img src="/icon.png" alt="Meovv Logo" />
       <br />
       <p className="tangerine-regular">
         Sign in via magic link with your email below
@@ -360,11 +337,7 @@ function Lamp({ setColor }) {
   return (
     <>
       <p className="click">click me!</p>
-      <img
-        className="lamp"
-        src="./src/assets/lamp.png"
-        onClick={toggleColor}
-      ></img>
+      <img className="lamp" src="/lamp.png" onClick={toggleColor}></img>
     </>
   );
 }
