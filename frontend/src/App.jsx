@@ -19,7 +19,7 @@ function OpeningPage() {
     <>
       <div className="background">
         <div className="container">
-          <img src="./src/icon.png" alt="Meovv Logo" />
+          <img src="./assets/logo.png" alt="Meovv Logo" />
           <h2 className="item">
             Find Your
             <br /> People Here at
