@@ -128,7 +128,7 @@ function NavBar() {
         <NavLink to="/messages">
           {({ isActive }) => (
             <img
-              src={isActive ? "/messages_2.png" : "/messages.png"}
+              src={isActive ? "/messages_2.png" : "/Messages.png"}
               alt="messages icon"
             ></img>
           )}
