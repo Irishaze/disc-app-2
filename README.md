@@ -1,16 +1,32 @@
-# React + Vite
+# disc-app-2 (Meovv)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack app to help Northwestern students find community on campus — create an account, sign in, and connect with people.
 
-Currently, two official plugins are available:
+## Stack
+- **Frontend:** React 19 + Vite, React Router, Supabase Auth (`@supabase/supabase-js`)
+- **Backend:** Node.js + Express 5, `pg` (Postgres), CORS
+- **Database/Auth:** Supabase
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project structure
+```
+frontend/   React app (Vite)
+backend/    Express API (routers, controllers, middleware, config)
+```
 
-## React Compiler
+## Running locally
 
-The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+**Backend**
+```bash
+cd backend
+npm install
+# create a .env with your Supabase/Postgres credentials
+npm run dev   # nodemon, http://localhost:3001
+```
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+**Frontend**
+```bash
+cd frontend
+npm install
+# create a .env with VITE_SUPABASE_URL and VITE_SUPABASE_PUBLISHABLE_DEFAULT_KEY
+npm run dev   # http://localhost:5173
+```
